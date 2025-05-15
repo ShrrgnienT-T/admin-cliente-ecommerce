@@ -25,47 +25,51 @@
     style="background: linear-gradient(135deg, #1a1a1a 0%, #2d0b0b 40%, #ff003c 100%); min-height: 100vh;">
     <!-- Topbar -->
     @include('layouts.partials.topbar')
-    <div class="d-flex flex-column flex-md-row min-vh-100">
-        <!-- Sidebar -->
-        @include('layouts.partials.sidebar')
-        <!-- Main Content -->
-        <main class="flex-1 p-3 p-md-4 p-lg-5 w-100"
-            style="background: rgba(20, 10, 20, 0.7); border-radius: 1rem; margin: 1rem; min-height: 80vh;">
-            <!-- Banner Promocional/Carrossel -->
-            <div class="container-fluid px-0 mb-4">
-                <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner rounded-3 shadow">
-                        <div class="carousel-item active">
-                            <img src="https://images.unsplash.com/photo-1515168833906-d2a3b82b3029?auto=format&fit=crop&w=1200&q=80"
-                                class="d-block w-100" alt="Promoção 1" style="max-height:320px;object-fit:cover;">
-                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
-                                <h5>Super Oferta Eletrônicos</h5>
-                                <p>Descontos imperdíveis em celulares, TVs e mais!</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
-                                class="d-block w-100" alt="Promoção 2" style="max-height:320px;object-fit:cover;">
-                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
-                                <h5>Moda em Oferta</h5>
-                                <p>Roupas para todos os estilos com preços especiais.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Próximo</span>
-                    </button>
-                </div>
+    <div class="container-fluid" style="margin-top:56px;">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="d-none d-md-block col-md-3 col-lg-2 px-0">
+                @include('layouts.partials.sidebar')
             </div>
-            @yield('content')
-        </main>
+            <!-- Main Content -->
+            <main class="col-12 col-md-9 col-lg-10 p-3 p-md-4 p-lg-5"
+                style="background: rgba(20, 10, 20, 0.7); border-radius: 1rem; min-height: 80vh;">
+                <!-- Banner Promocional/Carrossel -->
+                <div class="container-fluid px-0 mb-4">
+                    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner rounded-3 shadow">
+                            <div class="carousel-item active">
+                                <img src="https://images.unsplash.com/photo-1515168833906-d2a3b82b3029?auto=format&fit=crop&w=1200&q=80"
+                                    class="d-block w-100" alt="Promoção 1" style="max-height:320px;object-fit:cover;">
+                                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
+                                    <h5>Super Oferta Eletrônicos</h5>
+                                    <p>Descontos imperdíveis em celulares, TVs e mais!</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+                                    class="d-block w-100" alt="Promoção 2" style="max-height:320px;object-fit:cover;">
+                                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-3">
+                                    <h5>Moda em Oferta</h5>
+                                    <p>Roupas para todos os estilos com preços especiais.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Próximo</span>
+                        </button>
+                    </div>
+                </div>
+                @yield('content')
+            </main>
+        </div>
     </div>
     <!-- Card Footer -->
     <div class="container my-4">

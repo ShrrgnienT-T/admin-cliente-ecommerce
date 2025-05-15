@@ -1,6 +1,6 @@
 {{-- resources/views/layouts/partials/topbar.blade.php --}}
-<nav class="shadow h-16 d-flex align-items-center justify-content-between w-100 px-2 px-md-4"
-    style="background: linear-gradient(90deg, #1a1a1a 0%, #2d0b0b 40%, #ff003c 100%);">
+<nav class="fixed-top shadow d-flex align-items-center justify-content-between w-100 px-2 px-md-4 py-2"
+    style="z-index:1040; background: linear-gradient(90deg, #1a1a1a 0%, #2d0b0b 40%, #ff003c 100%);">
     <div class="d-flex align-items-center gap-2 gap-md-3 flex-shrink-0">
         <span class="text-xl font-bold text-white truncate">{{ config('app.name', 'Laravel') }}</span>
     </div>
@@ -41,11 +41,12 @@
         @endif
         @if (auth()->check() && auth()->user()->hasRole('comprador'))
             <!-- Ícone Carrinho com badge -->
-            <div class="position-relative">
+            <div class="position-relative" id="carrinho-badge-container">
                 <a href="{{ route('carrinho.index') }}"
-                    class="p-2 rounded-circle bg-transparent border-0 d-flex align-items-center justify-content-center hover:bg-danger focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
+                    class="p-2 rounded-circle bg-transparent border-0 d-flex align-items-center justify-content-center position-relative"
+                    style="min-width: 40px; min-height: 40px;">
+                    <svg width="28" height="28" style="color: #fff;" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A2 2 0 008.48 19h7.04a2 2 0 001.83-1.3L17 13M7 13V6h13" />
                     </svg>
