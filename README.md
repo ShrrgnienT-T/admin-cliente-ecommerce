@@ -67,3 +67,5 @@ php artisan serve
 💡 Contribuindo
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues, pull requests, ou sugerir melhorias.
 
+
+
