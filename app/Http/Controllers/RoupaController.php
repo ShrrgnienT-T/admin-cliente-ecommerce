@@ -88,9 +88,11 @@ class RoupaController extends Controller
 
     public function adicionarAoCarrinho(Request $request, Roupa $roupa)
     {
-        // Gate::authorize('roupa_adicionar_ao_carrinho');
         $user = Auth::user();
         if (!$user) {
+            if ($request->ajax()) {
+                return response()->json(['message' => 'Faça login para adicionar ao carrinho.'], 401);
+            }
             return redirect()->route('login');
         }
         $carrinho = Carrinho::firstOrCreate(['user_id' => $user->id]);
@@ -107,6 +109,14 @@ class RoupaController extends Controller
         }
         $cartCount = $carrinho->itens()->sum('quantidade');
         session(['cart_count' => $cartCount]);
+
+        if ($request->ajax()) {
+            return response()->json([
+                'message' => 'Produto adicionado ao carrinho!',
+                'cart_count' => $cartCount
+            ]);
+        }
+
         return redirect()->back()->with('success', 'Produto adicionado ao carrinho!');
     }
 }
