@@ -6,6 +6,7 @@ use App\Http\Controllers\EletronicoController;
 use App\Http\Controllers\RoupaController;
 use App\Http\Controllers\AlimentoController;
 use App\Http\Controllers\LivroController;
+use App\Http\Controllers\CarrinhoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,8 +43,13 @@ Route::post('livros/{livro}/adicionar-ao-carrinho', [LivroController::class, 'ad
 
 // Carrinho
 Route::middleware('auth')->group(function () {
-    Route::get('carrinho', [\App\Http\Controllers\CarrinhoController::class, 'index'])->name('carrinho.index');
-    Route::delete('carrinho/remover/{id}', [\App\Http\Controllers\CarrinhoController::class, 'remover'])->name('carrinho.remover');
+    Route::get('carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
+    Route::delete('carrinho/remover/{id}', [CarrinhoController::class, 'remover'])->name('carrinho.remover');
+    Route::get('/carrinho/quantidade', [CarrinhoController::class, 'quantidadeCarrinho'])
+        ->middleware('auth')
+        ->name('carrinho.quantidade');
+
+    Route::post('carrinho-item/{item}/atualizar-quantidade', [\App\Http\Controllers\CarrinhoItemController::class, 'atualizarQuantidade'])->name('carrinho-item.atualizarQuantidade');
 });
 
 require __DIR__ . '/auth.php';
