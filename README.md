@@ -48,7 +48,7 @@ bash
 Copiar
 Editar
 # Clone o repositório
-git clone https://github.com/shrrgnien/admin-cliente-ecommerce.git
+git clone https://github.com/ShrrgnienT-T/admin-cliente-ecommerce.git
 
 # Instale as dependências
 composer install
