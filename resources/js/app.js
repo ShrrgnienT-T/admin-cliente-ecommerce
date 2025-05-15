@@ -1,4 +1,5 @@
 import './bootstrap';
+import './carrinho-badge';
 
 import Alpine from 'alpinejs';
 
